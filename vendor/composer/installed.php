@@ -3,7 +3,7 @@
         'name' => 'christian/to_do_list',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '863b473bc81eee601c668da645eb67d9a22a6e6c',
+        'reference' => '37fc2f8aa03343f00454f07687b29583d2ac7b64',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'christian/to_do_list' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '863b473bc81eee601c668da645eb67d9a22a6e6c',
+            'reference' => '37fc2f8aa03343f00454f07687b29583d2ac7b64',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

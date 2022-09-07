@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "08febc229a3b86cab9469d70ef20cd83",
+    "content-hash": "f7083f8cada1ef78ebb17bc37ffb1f06",
     "packages": [
         {
             "name": "doctrine/data-fixtures",
@@ -2260,7 +2260,8 @@
     "stability-flags": {
         "doctrine/data-fixtures": 20,
         "raveren/kint": 20,
-        "illuminate/events": 20
+        "illuminate/events": 20,
+        "nesbot/carbon": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

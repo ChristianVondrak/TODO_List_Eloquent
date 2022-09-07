@@ -1,0 +1,23 @@
+{
+    "name": "christian/to_do_list",
+    "description": "To do list",
+    "type": "project",
+    "require": {
+        "doctrine/data-fixtures": "1.6.x-dev",
+        "raveren/kint": "dev-main",
+        "illuminate/database": "8.x-dev"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Christian\\ToDoList\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Christian",
+            "email": "christian20599@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}

@@ -18,11 +18,13 @@ use App\Task;
 //     'checked'=>0
 // ]);
 
-$task=App\Task::find(1);
-$task->title='NEW TITLE';
+// $task=App\Task::find(1);
+// echo $task->title;
+// $task->save();
+
+$task = new Task;
+$task->title = 'Titulo de prueba';
 $task->save();
-
-
 //EL UNICO QUE FUNCIONA
 
 // $capsule::table('todos')->insert([

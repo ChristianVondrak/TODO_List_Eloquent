@@ -11,6 +11,7 @@ class Task extends Model{
         'checked'
     ];
     protected $guarded = [];
+    const UPDATED_AT=null;
 }
 
 

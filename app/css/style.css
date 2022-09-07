@@ -1,12 +1,18 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
 body {
-    background: rgb(238, 238, 238);
+    /* background: rgb(238, 238, 238); */
+    background-image: url(../img/bg2.jpg);
+    background-repeat: no-repeat, repeat;
+    background-size: cover;
+    height: 100vh;
   }
   
-  * {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-  }
+
   
   .main-section {
     background: transparent;
@@ -50,6 +56,7 @@ body {
     font-size: 16px;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 1000ms;
   }
   
   .add-section button:hover {

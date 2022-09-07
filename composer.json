@@ -5,7 +5,8 @@
     "require": {
         "doctrine/data-fixtures": "1.6.x-dev",
         "raveren/kint": "dev-main",
-        "illuminate/database": "8.x-dev"
+        "illuminate/database": "8.83",
+        "illuminate/events": "8.x-dev"
     },
     "license": "MIT",
     "autoload": {

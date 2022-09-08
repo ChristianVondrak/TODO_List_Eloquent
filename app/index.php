@@ -4,16 +4,10 @@ require '../vendor/autoload.php';
 require 'database/database.php';
 require 'models/Task.php';
 
-//$task = $capsule::table('todos')->where('id','=','1')->get();
 use Carbon\Carbon;
 use App\Task;
 
 $task = Task::all();
-// foreach($task as $t){
-//     echo $t->title;
-// }
-// echo Task::get()->count();
-
 ?>
 
 <!DOCTYPE html>
@@ -25,6 +19,7 @@ $task = Task::all();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>To-Do List</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 
 <body>
@@ -60,18 +55,14 @@ $task = Task::all();
                 <div class="todo-item">
                     <span id="<?php echo $t->id; ?>" class="remove-to-do">x</span>
                     <?php if ($t->checked) { ?>
-                        <input type="checkbox" 
-                                class="check-box" 
-                                data-todo-id = "<?php echo $t->id; ?>"
-                                checked>
+                        <input type="checkbox" class="check-box" data-todo-id="<?php echo $t->id; ?>" checked>
                         <h2 class="checked"><?php echo $t->title; ?></h2>
                     <?php } else { ?>
-                        <input type="checkbox" 
-                                class="check-box"
-                                data-todo-id = "<?php echo $t->id; ?>">
+                        <input type="checkbox" class="check-box" data-todo-id="<?php echo $t->id; ?>">
                         <h2><?php echo $t->title; ?></h2>
                     <?php } ?>
-                    <small><?php echo $t->created_at . ' (' . $t->created_at->diffForHumans() . ')' ?></small>
+                    <small><?php echo '<b>Created at</b> ' . $t->created_at . ' (' . $t->created_at->diffForHumans() . ')' ?></small>
+                    <small ><?php echo '<b>Updated at</b> ' . $t->updated_at . ' (' . $t->updated_at->diffForHumans() . ')' ?></small>
                 </div>
             <?php } ?>
 
@@ -96,25 +87,26 @@ $task = Task::all();
 
             $(".check-box").click(function(e) {
                 const id = $(this).attr('data-todo-id');
-                $.post('check.php',
-                {
-                    id: id
-                },
-                (data)=>{
-                    
+                $.post('check.php', {
+                        id: id
+                    },
+                    (data) => {
 
-                    if(data !='error'){
-                        console.log(data==='1')
-                        const h2 = $(this).next();
-                        if(data==='1'){
-                            h2.removeClass('checked');
-                        }else{
-                            h2.addClass('checked');
+
+                        if (data != 'error') {
+
+                            const h2 = $(this).next();
+                            if (data === '1') {
+                                h2.removeClass('checked');
+                            } else {
+                                h2.addClass('checked');
+                            }
                         }
                     }
-                }
+                    
                 );
             });
+
         });
     </script>
 </body>

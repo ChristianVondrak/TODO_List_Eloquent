@@ -85,17 +85,17 @@ $task = Task::all();
                         if (data) {
                             $(this).parent().hide(600);
                             setTimeout(
-                            function() {
-                            location.reload();
-                            }, 600); 
-                        }                       
+                                function() {
+                                    location.reload();
+                                }, 600);
+                        }
                     });
-                    
+
                 if (count == 1) {
                     setTimeout(
                         function() {
                             location.reload();
-                        }, 600);    
+                        }, 600);
                 }
             });
 
@@ -149,6 +149,19 @@ $task = Task::all();
 
         });
     </script>
+
+    <footer>
+        <div class="footer">
+            <div id="button"></div>
+            <div id="container">
+                <div id="cont">
+                    <div class="footer_center">
+                        <h3>Designed by Christian Vondrak</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

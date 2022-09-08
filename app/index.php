@@ -62,7 +62,7 @@ $task = Task::all();
                         <h2><?php echo $t->title; ?></h2>
                     <?php } ?>
                     <small><?php echo '<b>Created at</b> ' . $t->created_at . ' (' . $t->created_at->diffForHumans() . ')' ?></small>
-                    <small ><?php echo '<b>Updated at</b> ' . $t->updated_at . ' (' . $t->updated_at->diffForHumans() . ')' ?></small>
+                    <small ><?php echo '<b>Ended</b> ' . $t->updated_at . ' (' . $t->updated_at->diffForHumans() . ')' ?></small>
                 </div>
             <?php } ?>
 

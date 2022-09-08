@@ -19,7 +19,6 @@ $task = Task::all();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>To-Do List</title>
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 
 <body>
@@ -54,6 +53,9 @@ $task = Task::all();
             <?php foreach ($task as $t) { ?>
                 <div class="todo-item">
                     <span id="<?php echo $t->id; ?>" class="remove-to-do">x</span>
+                    <p id="<?php echo $t->id; ?>" class="edit">Edit</p>
+                    <p id="<?php echo $t->id; ?>" class="hidden confirm">Confirm</p>
+                    <input type="text" name="edit" id="editar" class="hidden input-edit" placeholder="New Title">
                     <?php if ($t->checked) { ?>
                         <input type="checkbox" class="check-box" data-todo-id="<?php echo $t->id; ?>" checked>
                         <h2 class="checked"><?php echo $t->title; ?></h2>
@@ -62,7 +64,7 @@ $task = Task::all();
                         <h2><?php echo $t->title; ?></h2>
                     <?php } ?>
                     <small><?php echo '<b>Created at</b> ' . $t->created_at . ' (' . $t->created_at->diffForHumans() . ')' ?></small>
-                    <small ><?php echo '<b>Ended</b> ' . $t->updated_at . ' (' . $t->updated_at->diffForHumans() . ')' ?></small>
+                    <small><?php echo '<b>Updated at</b> ' . $t->updated_at . ' (' . $t->updated_at->diffForHumans() . ')' ?></small>
                 </div>
             <?php } ?>
 
@@ -75,14 +77,26 @@ $task = Task::all();
         $(document).ready(function() {
             $('.remove-to-do').click(function() {
                 const id = $(this).attr('id');
+                var count = $(".show-todo-section").find(".todo-item").length;
                 $.post("remove.php", {
                         id: id
                     },
                     (data) => {
                         if (data) {
                             $(this).parent().hide(600);
-                        }
+                            setTimeout(
+                            function() {
+                            location.reload();
+                            }, 600); 
+                        }                       
                     });
+                    
+                if (count == 1) {
+                    setTimeout(
+                        function() {
+                            location.reload();
+                        }, 600);    
+                }
             });
 
             $(".check-box").click(function(e) {
@@ -103,9 +117,35 @@ $task = Task::all();
                             }
                         }
                     }
-                    
+
                 );
             });
+
+            $('.edit').click(function() {
+                const id = $(this).attr('id');
+                const input = $(this).next().next();
+                const confirm = $(this).next();
+                input.removeClass('hidden');
+                confirm.removeClass('hidden');
+                $(this).addClass('hidden');
+            });
+            $('.confirm').click(function() {
+                const id = $(this).attr('id');
+
+                let inputValue = document.getElementById("editar").value;
+
+                $.post("edit.php", {
+                        id: id,
+                        inputValue: inputValue
+                    },
+                    (data) => {
+                        $("#editar").addClass('hidden');
+                        $(".edit").removeClass('hidden');
+                        $(".confirm").addClass('hidden');
+                        location.reload();
+                    });
+            });
+
 
         });
     </script>

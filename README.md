@@ -18,9 +18,11 @@ Librerias: https://packagist.org/packages/illuminate/database (ORM DATABASE)
 
 **PARA DESPLEGAR EL PROYECTO**
 
+- Instalar composer.
 - Abrir el Bash de Git o CMD
 - Dirigirte al directorio del proyecto
 - $ git clone https://github.com/ChristianVondrak/TODO_List_Eloquent.git
+- Ejecutar el comando composer install.
 - Dirigirse a App/database/todo_list.sql dentro de su proyecto local
 - Ejecutar tu servidor local, XAMP, WAMP, etc. Luego iniciar los servicios de Apache y MySQL
 - Dirigirse a http://localhost/phpmyadmin/index.php

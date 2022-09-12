@@ -15,3 +15,14 @@ Proyecto realizado con HTML,CSS,PHP,JavaScript,AJAAX.
 Librerias: https://packagist.org/packages/illuminate/database (ORM DATABASE)
            https://packagist.org/packages/nesbot/carbon (Manejo de fechas)
            https://packagist.org/packages/raveren/kint (Debugger)
+
+**PARA DESPLEGAR EL PROYECTO**
+
+- Abrir el Bash de Git o CMD
+- Dirigirte al directorio del proyecto
+- $ git clone https://github.com/ChristianVondrak/TODO_List_Eloquent.git
+- Dirigirse a App/database/todo_list.sql dentro de su proyecto local
+- Ejecutar tu servidor local, XAMP, WAMP, etc. Luego iniciar los servicios de Apache y MySQL
+- Dirigirse a http://localhost/phpmyadmin/index.php
+- Importar la base de datos (todo_list.sql) mencionado en los pasos anteriores
+- Desde localholst abrir la ruta del archivo y listo.

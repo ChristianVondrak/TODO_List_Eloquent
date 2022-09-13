@@ -11,11 +11,12 @@ La database de la aplicacion esta en App/database/todo_list.sql (Si deseas proba
 la conexion actual esta misma se encuentra en App/database/database.php)
 
 
-Proyecto realizado con HTML,CSS,PHP,JavaScript,AJAAX.
-Librerias: https://packagist.org/packages/illuminate/database (ORM DATABASE)
-           https://packagist.org/packages/nesbot/carbon (Manejo de fechas)
-           https://packagist.org/packages/raveren/kint (Debugger)
-           
+Proyecto realizado con HTML,CSS,PHP,JavaScript.
+Librerias:
+
+- https://packagist.org/packages/illuminate/database (ORM DATABASE).
+- https://packagist.org/packages/nesbot/carbon (Manejo de fechas).
+- https://packagist.org/packages/raveren/kint (Debugger).
            
 **REQUISITOS PARA DESPLEGAR**    
 
@@ -28,5 +29,6 @@ Librerias: https://packagist.org/packages/illuminate/database (ORM DATABASE)
 - $ git clone https://github.com/ChristianVondrak/TODO_List_Eloquent.git
 - Ejecutar el comando composer install.
 - Iniciar servidor local o externo.
-- Conexion para la base de datos en app/database/config.php
+- editar conexion para la base de datos en app/database/config.php.example
+- Guardar config.php.example como config.php
 - SQL de ejemplo app/database/todo_list.sql

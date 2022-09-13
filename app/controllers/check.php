@@ -1,8 +1,8 @@
 <?php 
 
-require '../vendor/autoload.php';
-require 'database/database.php';
-require 'models/Task.php';
+require '../../vendor/autoload.php';
+require '../database/database.php';
+require '../models/Task.php';
 use App\Task;
 
 

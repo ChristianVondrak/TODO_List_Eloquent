@@ -24,7 +24,7 @@ $task = Task::all();
 <body>
     <div class="main-section">
         <div class="add-section">
-            <form action="app/add.php" method="POST" autocomplete="off">
+            <form action="app/controllers/add.php" method="POST" autocomplete="off">
                 <?php if (isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>
                     <input type="text" name="title" placeholder="This field is required" style="border-color:#ff6666">
                 <?php } else { ?>
@@ -55,7 +55,7 @@ $task = Task::all();
                     <span id="<?php echo $t->id; ?>" class="remove-to-do">x</span>
                     <p id="<?php echo $t->id; ?>" class="edit">Edit</p>
                     <p id="<?php echo $t->id; ?>" class="hidden confirm">Confirm</p>
-                    <input type="text" name="edit" id="editar" class="hidden input-edit" placeholder="New Title">
+                    <input type="text" name="edit" id="myInput" class="hidden input-edit" autocomplete="off" placeholder="New Title">
                     <?php if ($t->checked) { ?>
                         <input type="checkbox" class="check-box" data-todo-id="<?php echo $t->id; ?>" checked>
                         <h2 class="checked"><?php echo $t->title; ?></h2>
@@ -78,7 +78,7 @@ $task = Task::all();
             $('.remove-to-do').click(function() {
                 const id = $(this).attr('id');
                 var count = $(".show-todo-section").find(".todo-item").length;
-                $.post("app/remove.php", {
+                $.post("app/controllers/remove.php", {
                         id: id
                     },
                     (data) => {
@@ -101,7 +101,7 @@ $task = Task::all();
 
             $(".check-box").click(function(e) {
                 const id = $(this).attr('data-todo-id');
-                $.post('app/check.php', {
+                $.post('app/controllers/check.php', {
                         id: id
                     },
                     (data) => {
@@ -131,15 +131,16 @@ $task = Task::all();
             });
             $('.confirm').click(function() {
                 const id = $(this).attr('id');
-
-                let inputValue = document.getElementById("editar").value;
-
-                $.post("app/edit.php", {
+                const input= $(this).next();
+                var inputValue = input.val();
+                console.log(inputValue);
+                $.post('app/controllers/edit.php', {
                         id: id,
                         inputValue: inputValue
                     },
                     (data) => {
-                        $("#editar").addClass('hidden');
+                        console.log(inputValue)
+                        $(".input-edit").addClass('hidden');
                         $(".edit").removeClass('hidden');
                         $(".confirm").addClass('hidden');
                         location.reload();

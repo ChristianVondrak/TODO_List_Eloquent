@@ -24,7 +24,7 @@ $task = Task::all();
 <body>
     <div class="main-section">
         <div class="add-section">
-            <form action="add.php" method="POST" autocomplete="off">
+            <form action="app/add.php" method="POST" autocomplete="off">
                 <?php if (isset($_GET['mess']) && $_GET['mess'] == 'error') { ?>
                     <input type="text" name="title" placeholder="This field is required" style="border-color:#ff6666">
                 <?php } else { ?>
@@ -42,8 +42,8 @@ $task = Task::all();
             <?php if (Task::get()->count() <= 0) { ?>
                 <div class="todo-item">
                     <div class="empty">
-                        <img src="img/f.png" width="100%">
-                        <img src="img/Ellipsis.gif" width="80px">
+                        <img src="app/img/f.png" width="100%">
+                        <img src="app/img/Ellipsis.gif" width="80px">
                     </div>
                 </div>
             <?php } ?>
@@ -72,13 +72,13 @@ $task = Task::all();
     </div>
 
 
-    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="app/js/jquery-3.2.1.min.js"></script>
     <script>
         $(document).ready(function() {
             $('.remove-to-do').click(function() {
                 const id = $(this).attr('id');
                 var count = $(".show-todo-section").find(".todo-item").length;
-                $.post("remove.php", {
+                $.post("app/remove.php", {
                         id: id
                     },
                     (data) => {
@@ -101,12 +101,12 @@ $task = Task::all();
 
             $(".check-box").click(function(e) {
                 const id = $(this).attr('data-todo-id');
-                $.post('check.php', {
+                $.post('app/check.php', {
                         id: id
                     },
                     (data) => {
 
-
+                        console.log(data);
                         if (data != 'error') {
 
                             const h2 = $(this).next();
@@ -134,7 +134,7 @@ $task = Task::all();
 
                 let inputValue = document.getElementById("editar").value;
 
-                $.post("edit.php", {
+                $.post("app/edit.php", {
                         id: id,
                         inputValue: inputValue
                     },

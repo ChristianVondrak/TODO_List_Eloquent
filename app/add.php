@@ -9,20 +9,20 @@ use App\Task;
     $title= $_POST['title'];
 
     if (empty($title)){
-        header("Location: index.php?mess=error");
+        header("Location: ../index.php?mess=error");
     }else{
         $task = new Task;
         $task->title = $title;
         $task->save();
         if($task){
-            header("Location: index.php?mess=success");
+            header("Location: ../index.php?mess=success");
         }else{
-            header("Location: index.php");
+            header("Location: ../index.php");
         }
         exit();
     }
  }else{
-    header("Location: index.php?mess=error");
+    header("Location: ../index.php?mess=error");
  }
 
 

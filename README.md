@@ -20,8 +20,8 @@ Librerias:
            
 **REQUISITOS PARA DESPLEGAR**    
 
--Composer
--Git
+- Composer
+- Git
 
 **PARA DESPLEGAR EL PROYECTO**
 
